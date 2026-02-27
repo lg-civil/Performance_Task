@@ -20,8 +20,7 @@ def remove():
     ans = input('Do you want to remove something? (yes/no) ').lower()
     while ans == 'yes':
     # While the answer is 'yes', the user is asked to enter what task from the list they want to remove
-        a = input('What would you like to remove?: ') 
-    # Removes the item they enter
+        a = input('What would you like to remove?: ')
         to_do_list.remove(a)
     # Prints the new list
         print(to_do_list)
@@ -33,12 +32,17 @@ def remove():
     # If the user doesn't want to remove or add anything to the list, the loop is broken and they are told to finish the tasks that their list currently holds
         elif n == 'no':
             print('Ok go on and finish your list of things!')
-            break    
+            break  
     # If the user wants to add something to their list, the loop is broken and a new function is called
         elif n == 'add':
             lists(to_do_list)
             break
-
+        elif not to_do_list:
+            k = input('List is empty. Do you want to add something?').lower()
+            if k == 'yes':
+                lists(to_do_list)
+            elif k == 'no':
+                print('Great job. You finished your tasks.')
 
 # Defines the function and includes a parameter which is the starter list
 def lists(to_do_list):
